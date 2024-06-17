@@ -1,0 +1,25 @@
+#!/usr/sbin/nft -f
+
+table inet ray
+delete table inet ray
+
+
+table inet ray {
+  set directlist_v4 {
+    type ipv4_addr
+    flags interval
+  }
+}
+
+
+table ip ray
+delete table ip ray
+
+
+table ip ray_v4 {
+  set directlist_v4 {
+    type ipv4_addr
+    flags interval
+  }
+
+}
