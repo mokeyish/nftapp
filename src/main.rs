@@ -43,14 +43,12 @@ mod nftset {
         let set_name = CString::new(set_name)?;
 
         let addr = to_c_addr(addr);
-        let addr_len = match addr.as_ref() {
-            Either::Left(v) => v.len(),
-            Either::Right(v) => v.len(),
-        };
         let addr = match addr.as_ref() {
-            Either::Left(v) => v.as_ptr(),
-            Either::Right(v) => v.as_ptr(),
+            Either::Left(v) => v.as_slice(),
+            Either::Right(v) => v.as_slice(),
         };
+        let addr_len = addr.len();
+        let addr = addr.as_ptr();
 
         unsafe {
             Ok(crate::ffi::nftset::nftset_add(
@@ -75,14 +73,12 @@ mod nftset {
         let set_name = CString::new(set_name)?;
 
         let addr = to_c_addr(addr);
-        let addr_len = match addr.as_ref() {
-            Either::Left(v) => v.len(),
-            Either::Right(v) => v.len(),
-        };
         let addr = match addr.as_ref() {
-            Either::Left(v) => v.as_ptr(),
-            Either::Right(v) => v.as_ptr(),
+            Either::Left(v) => v.as_slice(),
+            Either::Right(v) => v.as_slice(),
         };
+        let addr_len = addr.len();
+        let addr = addr.as_ptr();
 
         unsafe {
             Ok(crate::ffi::nftset::nftset_del(
