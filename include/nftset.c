@@ -289,9 +289,7 @@ static int _nftset_socket_request(void *msg, int msg_len, void *ret_msg, int ret
 
 static int _nftset_socket_send(void *msg, int msg_len)
 {
-	char recvbuff[1024];
-
-	return _nftset_socket_request(msg, msg_len, recvbuff, sizeof(recvbuff));
+	return _nftset_socket_request(msg, msg_len, NULL, 0);
 }
 
 static int _nftset_get_nftset(int nffamily, const char *table_name, const char *setname, void *buf, void **nextbuf)

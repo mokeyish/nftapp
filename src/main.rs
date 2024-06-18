@@ -92,14 +92,6 @@ mod nftset {
     }
 }
 
-fn print_string(s: &str) -> anyhow::Result<()> {
-    use std::ffi::CString;
-    let c_string = CString::new(s)?;
-    unsafe {
-        ffi::foo::print_string(c_string.as_ptr());
-    }
-    Ok(())
-}
 
 fn main() {
     let ret = nftset::add(
@@ -111,7 +103,7 @@ fn main() {
     )
     .unwrap();
     println!(">>>>>>> {ret}");
-    print_string("hello123 ").unwrap();
+
     let ret = nftset::del(
         "inet",
         "ray",

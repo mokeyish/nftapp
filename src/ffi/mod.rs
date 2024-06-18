@@ -3,5 +3,5 @@
 #![allow(dead_code)]
 #![allow(non_snake_case)]
 
-pub mod foo;
+#[cfg(target_os = "linux")]
 pub mod nftset;

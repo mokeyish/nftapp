@@ -13,6 +13,7 @@ anyhow = "1.0.86"
 [build-dependencies]
 cc = "1.0"
 bindgen = "0.69.4"
+anyhow = "1.0"
 
 [profile.release]
 # see: https://github.com/johnthagen/min-sized-rust
